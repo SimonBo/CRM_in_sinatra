@@ -1,12 +1,25 @@
+<div class="container">
+  <div class="jumbotron text-center">
+    <h1>Contacts</h1>
 
-<h1>Contacts</h1>
+    <% @@rolodex.contacts.each do |contact| %>
+      <li class='no-bullets'>
+        <!-- <div class="media">
+          <a class="pull-left" href="/contacts/<%= contact.id%>">
+            <img class="media-object" src="http://placehold.it/30x30" alt="...">
+          </a>
+          <div class="media-body"> -->
+            <a href="/contacts/<%= contact.id%>"><p>
+            <%= contact.first_name%> <%= contact.last_name%></p>
+            </a>
+          <!-- </div>
+        </div> -->
+      </li>
+      
+      
 
-<% @@rolodex.contacts.each do |contact| %>
-  <li><a href="/contacts/<%= contact.id%>"><p>
-  <%= contact.first_name%> <%= contact.last_name%></p></a></li>
-  
-  <br><br>
+    <% end %>
 
-<% end %>
-
-<button><a href="/">Back to Main Menu</a></button>
+    <button type="button" class="btn  btn-primary btn-lg"><a href="/">Back to Main Menu</a></button>
+  </div>
+</div>

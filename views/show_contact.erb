@@ -1,21 +1,36 @@
-<h1>Contact Details</h1>
-<h2>First Name:</h2>
-<%= @contact.first_name %>
+<div class="container">
+  <div class="jumbotron text-center">
+    <h1>Contact Details</h1>
+    <h2>First Name:
+    <%= @contact.first_name %></h2>
+    
 
-<h2>Last Name:</h2>
-<%= @contact.last_name %>
+    <h2>Last Name:
+    <%= @contact.last_name %></h2>
 
-<h2>Email:</h2>
-<%= @contact.email %>
+    <h2>Email:<a href='mailto:<%= @contact.email %>'>
+    <%= @contact.email %></a></h2>
 
-<h2>Notes:</h2>
-<%= @contact.notes %><br>
+    <h2>Notes:
+    <%= @contact.notes %></h2><br>
 
-<button><a href="/contacts/<%= @contact.id%>/edit">Edit</a></button>
+    <div class="button-container">
+      <button type="button" class="btn btn-warning btn-lg pull-left"><a href="/contacts/<%= @contact.id%>/edit">Edit</a></button>
 
-<form action="/contacts/<%= @contact.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" name="Delete Contact">
-</form>
+      <form action="/contacts/<%= @contact.id %>" method="post" class="pull-left">
+        <input type="hidden" name="_method" value="delete">
+        <button  class="btn btn-danger btn-lg" type="submit" name="Delete Contact" value="Delete">Delete</button>
+      </form>    
 
-<button><a href="/">Back to Main Menu</a></button>
+      <button type="button" class="btn btn-primary btn-lg"><a href="/">Back to Main Menu</a></button>
+    </div>
+  </div>
+</div>
+
+<style>
+
+.button-container {
+  margin: auto;
+  width: 350px;
+}
+</style>
