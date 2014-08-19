@@ -1,7 +1,7 @@
 class Rolodex
 
   attr_reader :contacts
-  
+
 	def initialize
     @contacts=[]
     @index = 1000
@@ -14,25 +14,22 @@ class Rolodex
     contact
   end
 
-  def find_contact (last_name)  
-    @contacts.each do |contact|
-      if contact.last_name == last_name
-        return contact
-      end
-    end
-
+  def find(contact_id)
+    @contacts.find {|contact| contact.id == contact_id }
   end
 
   def find_contact (attribute)  
     @contacts.each do |contact|
-      if contact.last_name == attribute
+      if contact.last_name.downcase == attribute.downcase
         return contact
-      elsif contact.first_name == attribute
+      elsif contact.first_name.downcase == attribute.downcase
         return contact
-      elsif contact.email == attribute
+      elsif contact.email.downcase == attribute.downcase
         return contact
       elsif contact.id == attribute
         return contact
+      else
+        return
       end
     end
   end
@@ -57,18 +54,6 @@ class Rolodex
   
 
 
-
-
-  def show_all_contacts
-    @contacts.each do |x|
-      puts "Contact id: #{x.id}"
-      puts "First Name: #{x.first_name}"
-      puts "Last Name: #{x.last_name}"
-      puts "Email: #{x.email}"
-      puts "Notes: #{x.notes}"
-      puts ""
-    end  
-  end
    
   
 end
