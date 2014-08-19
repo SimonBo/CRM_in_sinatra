@@ -1,0 +1,7 @@
+<h1>Contacts</h1>
+
+<% @@rolodex.contacts.each do |contact| %>
+  <li><%= contact.first_name%> <%= contact.last_name %></li>
+<% end %>
+
+<button><a href="/">Back to Main Menu</a></button>
